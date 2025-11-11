@@ -1,0 +1,13 @@
+# macOS files
+.DS_Store
+
+# Gradle cache folders
+**/.gradle/
+
+# Compiled class folders
+**/bin/
+
+# IntelliJ / Eclipse / VSCode metadata (optional but recommended)
+*.iml
+.idea/
+.vscode/
