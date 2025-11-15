@@ -1,8 +1,12 @@
 package it.unibo.mvc;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -44,6 +48,31 @@ public class MiniGUI {
                 System.out.println(randomGenerator.nextInt());
             }
         });
+
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new BoxLayout(panel2, BoxLayout.Y_AXIS));
+        final JButton button2 = new JButton("Another Button");
+        panel2.add(button2);
+        frame.add(panel2, BorderLayout.CENTER);
+
+        final JTextField textField2 = new JTextField(10);
+        textField2.setEditable(true);
+        final JLabel label2 = new JLabel("Result");
+        panel2.add(label2, BorderLayout.NORTH);
+        panel2.add(textField2);
+
+        frame.pack();
+        frame.setVisible(true);
+
+        final int[] counter = {0};
+
+        final JButton button3 = new JButton("Increase");
+        frame.add(button3, BorderLayout.CENTER);
+        button3.addActionListener(e -> {
+            counter[0]++;
+            System.out.println(counter[0]); // prints to console
+            textField2.setText(String.valueOf(counter[0])); // displays in text field
+        });
     }
 
     private void display() {
@@ -74,6 +103,7 @@ public class MiniGUI {
          * OK, ready to pull the frame onscreen
          */
         frame.setVisible(true);
+        frame.pack();
     }
 
     /**
@@ -85,5 +115,5 @@ public class MiniGUI {
     public static void main(final String... args) {
         new MiniGUI().display();
     }
-
 }
+
